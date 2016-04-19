@@ -12,6 +12,7 @@ typedef struct claims
 
 int main()
 {
+
 	int claims[8];
 	string line;
 	string num;
@@ -19,11 +20,30 @@ int main()
 	char c = '3';
 	string sxi, syi;
 
-	ifstream claim("land.txt", ios::in);
-	//ofstream txt("land.out.txt", ios::out);
-	//txt.close();*****place at end when complete.
+//	ifstream claim("land.txt", ios::in);
+	fstream txt("land.out.txt", ios::out);
+	
+	if (txt.is_open())
+	{
+	
+		cout << "File: Land.out.txt has been sucessfully created." << endl;
+	
+	
+	
+	}
+	else
+		cout << "Error creating file" << endl;
 
-	if (claim.is_open())
+	txt.close(); //*****place at end when complete.
+
+	if (txt.is_open())
+		cout << "File: Land.out has been sucessfully created." << endl;
+
+	else
+		cout << "Error creating file" << endl;
+
+
+	/*if (claim.is_open())
 	{
 
 		cout << "File land.txt has been sucessfully opened." << endl;
@@ -50,7 +70,7 @@ int main()
 	else
 	{
 		cout << "Unable to open file." << endl;
-	}
+	}*/
 
 	system("pause");
 	return 0;
