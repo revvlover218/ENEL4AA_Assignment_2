@@ -21,48 +21,31 @@ int main()
 	string sxi, syi;
 
 	ifstream claim("land.txt", ios::in);
-	/*fstream txt("land.out.txt", ios::out);
-	
-	if (txt.is_open())
-	{
-	
-		cout << "File: Land.out.txt has been sucessfully created." << endl;
-	
-	
-	
-	}
-	else
-		cout << "Error creating file" << endl;
-
-	txt.close(); //*****place at end when complete.
-
-	if (txt.is_open())
-		cout << "File: Land.out has been sucessfully created." << endl;
-
-	else
-		cout << "Error creating file" << endl;*/
-
+	fstream txt("land.out.txt", ios::out);
 
 	if (claim.is_open())
 	{
 
 		cout << "File land.txt has been sucessfully opened." << endl;
-
 		getline(claim, num);  //reads the first line of the file. Gets the number of claims 
-
 		N = stoi(num, nullptr);
 		cout << "Total Number of claims to be sorted: " << N << endl;
 
 		claim >> sxi >> syi; //stores the x and y values.
-
-		cout << "In text form:" << "\t" << sxi << "\t" << syi << endl;
-
 		xi = stoi(sxi, nullptr); //convert to integer
 		yi = stoi(syi, nullptr); //convert to integer
 
-		cout << "\n\nConverted and using cal: " << endl;
-		cout << xi + 10 << endl;
-		cout << yi + 10 << endl;
+		if (txt.is_open())
+		{
+
+			cout << "File: Land.out.txt has been sucessfully created." << endl;
+
+			txt << sxi << " " << syi << endl;
+			cout << sxi << " " << syi << endl;
+		}
+
+		else
+			cout << "Error creating file" << endl;
 
 		/*for (int i = 0; i < N; i++)
 		{
@@ -75,6 +58,7 @@ int main()
 
 		}*/
 
+	    txt.close();
 		claim.close();
 	}
 
