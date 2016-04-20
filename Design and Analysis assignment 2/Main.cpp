@@ -20,8 +20,8 @@ int main()
 	char c = '3';
 	string sxi, syi;
 
-//	ifstream claim("land.txt", ios::in);
-	fstream txt("land.out.txt", ios::out);
+	ifstream claim("land.txt", ios::in);
+	/*fstream txt("land.out.txt", ios::out);
 	
 	if (txt.is_open())
 	{
@@ -40,10 +40,10 @@ int main()
 		cout << "File: Land.out has been sucessfully created." << endl;
 
 	else
-		cout << "Error creating file" << endl;
+		cout << "Error creating file" << endl;*/
 
 
-	/*if (claim.is_open())
+	if (claim.is_open())
 	{
 
 		cout << "File land.txt has been sucessfully opened." << endl;
@@ -53,7 +53,18 @@ int main()
 		N = stoi(num, nullptr);
 		cout << "Total Number of claims to be sorted: " << N << endl;
 
-		for (int i = 0; i < N; i++)
+		claim >> sxi >> syi; //stores the x and y values.
+
+		cout << "In text form:" << "\t" << sxi << "\t" << syi << endl;
+
+		xi = stoi(sxi, nullptr); //convert to integer
+		yi = stoi(syi, nullptr); //convert to integer
+
+		cout << "\n\nConverted and using cal: " << endl;
+		cout << xi + 10 << endl;
+		cout << yi + 10 << endl;
+
+		/*for (int i = 0; i < N; i++)
 		{
 			getline(claim, line);
 			syi = line.substr(2, 2);
@@ -62,7 +73,7 @@ int main()
 			cout << line << endl;
 			cout << sxi << " " << syi << endl;
 
-		}
+		}*/
 
 		claim.close();
 	}
@@ -70,7 +81,11 @@ int main()
 	else
 	{
 		cout << "Unable to open file." << endl;
-	}*/
+	}
+
+
+
+
 
 	system("pause");
 	return 0;
