@@ -1,28 +1,22 @@
 #include "iostream"
 #include "string"
 #include "fstream"
+#include "Claims.h"
 
 using namespace std;
-
-typedef struct claims
-{
-	int x;
-	int y;
-};
 
 int main()
 {
 
-	int claims[8];
+	//int claims[8];
 	string line;
 	string num;
-	int N, xi, yi, xo, yo;
+	int N, xi, yi, xo, yo, spacepos;
 	char c = '3';
 	string sxi, syi;
 	//int x[] = {0};
     //int y[] = {0};
-	char x[2];
-	char y[2];
+	ClaimsXY pf;
 
 	ifstream claim("land.txt", ios::in);
 	fstream txt("land.out.txt", ios::out);
@@ -35,42 +29,30 @@ int main()
 		N = stoi(num, nullptr);
 		cout << "Total Number of claims to be sorted: " << N << endl;
 
-		/*for (int i = 0; i < N; i++)
-		{
-			
-			claim >> sxi >> syi; //stores the x and y values.
+		pf.setNum(N);
 		
-			xi = stoi(sxi, nullptr); //convert to integer
-			yi = stoi(syi, nullptr); //convert to integer
-		
-			x[i] = xi;
-			y[i] = yi;
-		
-		}*/
-
-
-		
-
-
-
-
-	/*	if (txt.is_open())
+		if (txt.is_open())
 		{
 
 			cout << "File: Land.out.txt has been sucessfully created." << endl;
 
-			txt << sxi << " " << syi << endl;
-			cout << sxi << " " << syi << endl;
+			while (getline(claim, line))
+			{
 
+				spacepos = pf.getSpace(line);
+				xi = pf.convertString(line, 0, spacepos);
+				yi = pf.convertString(line, spacepos + 1, line.length());
 
-
+				txt << xi + 10 << " " << yi + 10 << endl;
+			}
 		}
 
 		else
+		{
 			cout << "Error creating file" << endl;
-
-	    txt.close();*/
-
+		}
+			
+		txt.close();
 		claim.close();
 	}
 

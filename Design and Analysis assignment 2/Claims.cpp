@@ -1,14 +1,31 @@
-#include "CLAIMS.H"
+#include "Claims.H"
 #include "iostream"
 #include "string"
 
 using namespace std;
 
-Claims::Claims(){}
+ClaimsXY::ClaimsXY(){}
 
-Claims::~Claims(){}
+ClaimsXY::~ClaimsXY(){}
 
-/*int Claims::getSpace(string line)
+//Accessor and Mutator functions
+//Accessor
+
+int ClaimsXY::getNum()
+{
+	return N;
+}
+
+
+//Mutator
+void ClaimsXY::setNum(int n)
+{
+	//**If(n >= 0) {N = n;} //error checking
+	N = n;
+}
+
+
+int ClaimsXY::getSpace(string line)
 {
 
 	int pos;
@@ -19,7 +36,7 @@ Claims::~Claims(){}
 	return pos;
 }
 
-int Claims::convertString(string line, int start, int finish)
+int ClaimsXY::convertString(string line, int start, int finish)
 {
 
 	string txt;
@@ -27,4 +44,4 @@ int Claims::convertString(string line, int start, int finish)
 	txt = line.substr(start, finish);
 
 	return stoi(txt, nullptr);
-}*/
+}
