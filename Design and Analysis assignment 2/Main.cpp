@@ -19,6 +19,10 @@ int main()
 	int N, xi, yi, xo, yo;
 	char c = '3';
 	string sxi, syi;
+	//int x[] = {0};
+    //int y[] = {0};
+	char x[2];
+	char y[2];
 
 	ifstream claim("land.txt", ios::in);
 	fstream txt("land.out.txt", ios::out);
@@ -31,34 +35,42 @@ int main()
 		N = stoi(num, nullptr);
 		cout << "Total Number of claims to be sorted: " << N << endl;
 
-		claim >> sxi >> syi; //stores the x and y values.
-		xi = stoi(sxi, nullptr); //convert to integer
-		yi = stoi(syi, nullptr); //convert to integer
+		/*for (int i = 0; i < N; i++)
+		{
+			
+			claim >> sxi >> syi; //stores the x and y values.
+		
+			xi = stoi(sxi, nullptr); //convert to integer
+			yi = stoi(syi, nullptr); //convert to integer
+		
+			x[i] = xi;
+			y[i] = yi;
+		
+		}*/
 
-		if (txt.is_open())
+
+		
+
+
+
+
+	/*	if (txt.is_open())
 		{
 
 			cout << "File: Land.out.txt has been sucessfully created." << endl;
 
 			txt << sxi << " " << syi << endl;
 			cout << sxi << " " << syi << endl;
+
+
+
 		}
 
 		else
 			cout << "Error creating file" << endl;
 
-		/*for (int i = 0; i < N; i++)
-		{
-			getline(claim, line);
-			syi = line.substr(2, 2);
-			sxi = line.substr(0, 1);
+	    txt.close();*/
 
-			cout << line << endl;
-			cout << sxi << " " << syi << endl;
-
-		}*/
-
-	    txt.close();
 		claim.close();
 	}
 
@@ -67,9 +79,8 @@ int main()
 		cout << "Unable to open file." << endl;
 	}
 
-
-
-
+	//for (int i = 0; i < N; i++)
+		//cout << x[i] << " " << y[i] << endl;
 
 	system("pause");
 	return 0;
